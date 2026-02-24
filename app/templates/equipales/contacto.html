@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contacto,
+{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contacto.css') }}">
+    <!-- Fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+<section class = "contact-section">
+    <div class = "contact-bg">
+      <h3>¡Estas apunto de Elegir tu mejor Opcion en Equipales!</h3>
+      <h2>contáctanos</h2>
+      <div class = "line">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p class = "text">"¡Contáctanos hoy mismo y encuentra el mobiliario perfecto para tu hogar con Equipales Casillas! 
+        Estamos listos para escuchar tus necesidades y ayudarte a elegir la mejor opción. ¡No esperes más para darle un toque especial a tu hogar con nuestros hermosos equipales!"</p>
+    </div>
+
+
+    <div class = "contact-body">
+      <div class = "contact-info">
+        <div>
+          <span><i class = "fas fa-mobile-alt"></i></span>
+          <span>Numero de Telefono.</span>
+          <span class = "text">33 1219 9844</span>
+        </div>
+        <a href="mailto:ventas@equipalescasillasmx.com">
+          <div>
+            <span><i class="fas fa-envelope-open"></i></span>
+            <span>E-mail</span>
+            <span class="text">ventas@equipalescasillasmx.com</span>
+          </div>
+        </a>
+        <div>
+          <span><i class = "fas fa-map-marker-alt"></i></span>
+          <span>Dirección</span>
+          <span class = "text">Av Rubén Ramírez Flores #339, Zacoalco De Torres, Centro.</span>
+          <span class = "text">Arteaga 68, De Los Castillo y Los Robles, 45750 Zacoalco de Torres, Jal.</span>
+        </div>
+        <div>
+          <span><i class = "fas fa-clock"></i></span>
+          <span>Horario</span>
+          <span class = "text">Lunes - Sabado (7:00 AM to 6:00 PM)</span>
+        </div>
+      </div>
+
+      <div class = "contact-form">
+        <form id="formulario-contacto">
+          <h3>Una vez enviado el formulario, un asesor se pondrá en contacto con usted:</h3>
+          <p>Por favor tenga en cuenta que todos los campos marcados con un (*) son obligatorios.</p>
+          <div>
+              <input type="text" class="form-control" placeholder="Nombre*" id="nombre" required>
+              <input type="text" class="form-control" placeholder="Apellidos*" id="apellidos" required>
+          </div>
+          <div>
+              <input type="email" class="form-control" placeholder="E-mail*" id="email" required>
+              <input type="text" class="form-control" placeholder="Teléfono*" id="telefono" required>
+          </div>
+          <textarea rows="5" placeholder="Mensaje*" class="form-control" id="mensaje" required></textarea>
+          <input type="checkbox" id="avisoPrivacidad" required>
+          <label for="avisoPrivacidad">Acepto aviso de privacidad</label>
+          <input type="submit" class="send-btn" value="Mandar Mensaje">
+      </form>          
+
+        <div>
+          <img src = "static/img/contact-png.png" alt = "">
+        </div>
+      </div>
+    </div>
+
+    <div class = "map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29950.82321623319!2d-103.58633996620209!3d20.22343275230979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8425f508a18d911d%3A0xb59fae73a024802e!2sZacoalco%20de%20Torres%2C%20Jal.!5e0!3m2!1ses!2smx!4v1681161131819!5m2!1ses!2smx" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const formulario = document.getElementById('formulario-contacto');
+    
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue
+    
+            // Obtener los datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+    
+            // Enviar los datos al servidor Flask
+            fetch('/contacto', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    email: email,
+                    telefono: telefono,
+                    mensaje: mensaje
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Procesar la respuesta exitosa (puedes redirigir o mostrar un mensaje de éxito)
+                    alert('¡Mensaje enviado con éxito!');
+                    formulario.reset(); // Limpiar el formulario
+                } else {
+                    // Procesar la respuesta de error (puedes mostrar un mensaje de error)
+                    alert('Error al enviar el mensaje. Inténtalo de nuevo.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error inesperado. Inténtalo de nuevo más tarde.');
+            });
+        });
+    });
+    </script>
+    
+{% endblock%}

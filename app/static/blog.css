@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap");
+
+/* Variables CSS para mejor mantenimiento */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #ffd700;
+  --brown-color: #8b4513;
+  --text-color: #333;
+  --bg-color: #fff;
+  --container-color: #f5f5f5;
+  --second-color: #666;
+  --shadow: 0 4px 14px hsl(355deg 25% 15% / 10%);
+}
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+}
+
+/* TODOS LOS ESTILOS ESTÁN ENCAPSULADOS DENTRO DE .blog-page */
+/* Esto evita conflictos con otros estilos de la aplicación */
+
+.blog-page {
+  /* Variables CSS solo para esta página */
+  --blog-primary-color: #007bff;
+  --blog-primary-hover: #0056b3;
+  --blog-secondary-color: #ffd700;
+  --blog-brown-color: #8b4513;
+  --blog-text-color: #333;
+  --blog-bg-color: #fff;
+  --blog-container-color: #f5f5f5;
+  --blog-second-color: #666;
+  --blog-shadow: 0 4px 14px hsl(355deg 25% 15% / 10%);
+}
+
+/* Reset solo para elementos dentro de .blog-page */
+.blog-page * {
+  box-sizing: border-box;
+}
+
+/* Estilos para la sección del héroe */
+.blog-page .hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--blog-secondary-color), var(--blog-brown-color));
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.blog-page .hero-content {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.blog-page .left {
+  text-align: center;
+}
+
+.blog-page .hero h1.titulo {
+  font-family: "Alkatra", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  color: #000;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.blog-page .left h2 {
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.blog-page h1.responsable {
+  font-family: "Alkatra", sans-serif;
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.blog-page .hero p.index {
+  color: #fff;
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 100%;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.blog-page .left img {
+  max-width: 100%;
+  width: clamp(150px, 30vw, 300px);
+  display: block;
+  margin: 1rem auto 0;
+  border-radius: 8px;
+}
+
+.blog-page .hero img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: filter 0.3s ease;
+}
+
+.blog-page .hero img:hover {
+  filter: brightness(110%);
+}
+
+/* Animación de escritura responsive */
+.blog-page .typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  animation: blog-typing 5s steps(30, end), blog-blink .5s step-end infinite;
+  white-space: nowrap;
+  font-weight: bold;
+  border-right: 4px solid gold;
+  color: black;
+}
+
+@keyframes blog-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blog-blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: gold;
+  }
+}
+
+/* Estilos para el contenedor del video - RESPONSIVE */
+.blog-page .video-container {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.blog-page .video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: var(--blog-shadow);
+}
+
+.blog-page .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Estilos para la sección de artículos */
+.blog-page .articulos {
+  background-color: var(--blog-bg-color);
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.blog-page .blog-h1 {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin: 2rem 0;
+  color: var(--blog-text-color);
+}
+
+/* Grid responsive para las publicaciones */
+.blog-page .post {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.blog-page .post-box {
+  background: var(--blog-bg-color);
+  box-shadow: var(--blog-shadow);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
+}
+
+.blog-page .post-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px hsl(355deg 25% 15% / 15%);
+}
+
+.blog-page .post-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.blog-page .post-img:hover {
+  transform: scale(1.02);
+}
+
+.blog-page .category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--blog-primary-color);
+  margin: 1rem 0 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.blog-page .post-title {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  color: var(--blog-text-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-decoration: none;
+  border-bottom: 2px solid var(--blog-primary-color);
+  transition: border-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+}
+
+.blog-page .post-title:hover {
+  border-color: var(--blog-primary-hover);
+  color: var(--blog-primary-hover);
+}
+
+.blog-page .post-date {
+  display: flex;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0.5rem 0;
+  color: var(--blog-second-color);
+}
+
+.blog-page .post-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--blog-text-color);
+}
+
+.blog-page .profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.blog-page .profile-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--blog-primary-color);
+}
+
+.blog-page .profile-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--blog-text-color);
+}
+
+/* Estilos para la sección de TikTok */
+.blog-page .tiktok-section {
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff0050, #000);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.blog-page .tiktok-title {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.blog-page .tiktok-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.blog-page .tiktok-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-page .tiktok-embed {
+  margin: 0 !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.blog-page .tiktok-embed:hover {
+  transform: translateY(-5px) !important;
+}
+
+.blog-page .tiktok-cta {
+  margin-top: 2rem;
+}
+
+.blog-page .tiktok-button {
+  display: inline-block;
+  background: #fff;
+  color: #ff0050;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.blog-page .tiktok-button:hover {
+  background: #ff0050;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 80, 0.4);
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+
+/* Tablets grandes */
+@media screen and (max-width: 1024px) {
+  .blog-page .hero {
+    padding: 1.5rem;
+  }
+
+  .blog-page .post {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .blog-page .hero {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-page .typing-animation {
+    white-space: normal;
+    animation: none;
+    border-right: none;
+  }
+
+  .blog-page .post {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .blog-page .video-container {
+    margin: 1.5rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .blog-page .articulos {
+    padding: 0 0.5rem;
+  }
+
+  /* Responsive para TikTok */
+  .blog-page .tiktok-section {
+    margin: 2rem auto;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .blog-page .tiktok-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .blog-page .tiktok-embed {
+    max-width: 100% !important;
+    min-width: 280px !important;
+  }
+}
+
+/* Móviles grandes */
+@media screen and (max-width: 480px) {
+  .blog-page .hero {
+    padding: 1rem 0.5rem;
+    border-radius: 5px;
+  }
+
+  .blog-page .left img {
+    width: clamp(120px, 40vw, 200px);
+  }
+
+  .blog-page .post {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .blog-page .post-box {
+    padding: 1rem;
+  }
+
+  .blog-page .post-img {
+    height: 180px;
+  }
+
+  .blog-page .video-container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .blog-page .blog-h1 {
+    margin: 1.5rem 0;
+  }
+
+  /* Responsive para TikTok */
+  .blog-page .tiktok-section {
+    padding: 1rem 0.5rem;
+  }
+
+  .blog-page .tiktok-embed {
+    min-width: 250px !important;
+  }
+
+  .blog-page .tiktok-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 320px) {
+  .blog-page .hero {
+    padding: 0.8rem 0.3rem;
+  }
+
+  .blog-page .post-box {
+    padding: 0.8rem;
+  }
+
+  .blog-page .post-img {
+    height: 160px;
+  }
+
+  .blog-page .profile-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .blog-page .profile-name {
+    font-size: 0.8rem;
+  }
+}
+
+/* Estilos adicionales para mejor UX */
+@media (prefers-reduced-motion: reduce) {
+  .blog-page .typing-animation {
+    animation: none;
+    border-right: none;
+  }
+
+  .blog-page .post-box:hover {
+    transform: none;
+  }
+
+  .blog-page .post-img:hover {
+    transform: none;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-contrast: high) {
+  .blog-page .hero {
+    background: linear-gradient(45deg, #000, #333);
+  }
+
+  .blog-page .hero h1.titulo,
+  .blog-page .left h2 {
+    color: #fff;
+  }
+}
+
+/* Estilos para impresión */
+@media print {
+  .blog-page .hero {
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .blog-page .video-container {
+    display: none;
+  }
+
+  .blog-page .post-box {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>{% block title %}{% endblock%} Mejores Precios | Mejor calidad</title>
+  <link rel="shortcut icon" href="/static/equipalescasi.png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='slider.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='nuevo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='section-first.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='ubicacion.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='grid.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Rufina:wght@400;700&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f6ece0d38e.js" crossorigin="anonymous"></script>
+  <script defer src="{{ url_for('static', filename='index.js') }}"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+  <!-- boxicons -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Agrega la referencia a SweetAlert CSS y JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+
+<body>
+   <!-- header -->
+   <header>
+    <!-- mobile menu -->
+    <div class="mobile-menu bg-second">
+        <a href="#" class="mb-logo">Equipales Casillas</a>
+        <span class="mb-menu-toggle" id="mb-menu-toggle">
+            <i class='bx bx-menu'></i>
+        </span>
+    </div>
+    <!-- end mobile menu -->
+    <!-- main header -->
+    <div class="header-wrapper" id="header-wrapper">
+        <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+            <i class='bx bx-x'></i>
+        </span>
+        <!-- top header -->
+        <div class="bg-second">
+            <div class="top-header container">
+                <ul class="devided">
+                    <li>
+                        <a href="{{ url_for('equipales.contacto') }}">33 1219 9844</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/EQUIPALESCASILLASOFICIAL?mibextid=LQQJ4d">Equipales Casillas-Oficial</a>
+                    </li>
+                </ul>
+                <ul class="devided">
+                    <li class="dropdown">
+                        <a href="">MXN</a>
+                        <i class='bx bxs-chevron-down'></i>
+                        <ul class="dropdown-content">
+                            <li><a href="#">USD</a></li>
+                            <li><a href="#">GBP</a></li>
+                            <li><a href="#">EUR</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="">ESPAÑOL</a>
+                        <i class='bx bxs-chevron-down'></i>
+                        <ul class="dropdown-content">
+                            <li><a href="#">ENGLISH</a></li>
+                            <li><a href="#">JAPANESE</a></li>
+                            <li><a href="#">FRENCH</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Rastreo de Orden</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end top header -->
+        <!-- mid header -->
+        <div class="bg-main">
+            <div class="mid-header container">
+                <a href="#" class="logo">Equipales Casillas</a>
+                <div class="search">
+                    <input id="searchInput" type="text" placeholder="Search">
+                    <i class='bx bx-search-alt'></i>
+                </div>
+                <ul class="user-menu">
+                    <li><a href="#"><i class='bx bx-bell'></i></a></li>
+                    <li><a href="#"><i class='bx bx-user-circle'></i></a></li>
+                    <li><a href="{{ url_for('equipales.cart')}}"><i class='bx bx-cart'></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end mid header -->
+        <!-- bottom header -->
+        <div class="bg-second">
+            <div class="bottom-header container">
+                <ul class="main-menu">
+                    <li><a href="{{ url_for('equipales.index')}}">Inicio</a></li>
+                    <!-- mega menu -->
+                    <li class="mega-dropdown">
+                        <a>Compras<i class='bx bxs-chevron-down'></i></a>
+                        <div class="mega-content">
+                            <div class="row">
+                                <div class="col-3 col-md-12">
+                                    <div class="box">
+                                        <h3>Asientos</h3>
+                                        <ul>
+                                            <li><a href="/equipal-detail?id=9">Equipal Giratorio</a></li>
+                                            <li><a href="/equipal-detail?id=12">Equipal Cocula</a></li>
+                                            <li><a href="/equipal-detail?id=5">Equipal Tequila</a></li>
+                                            <li><a href="/equipal-detail?id=1">Equipal Texano</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-12">
+                                    <div class="box">
+                                        <h3>Comedores</h3>
+                                        <ul>
+                                            <li><a href="/product-detail?id=39">Comedor de Equipales #19 Pintado Chiapaneco</a></li>
+                                            <li><a href="/product-detail?id=32">Comedor 19</a></li>
+                                            <li><a href="/product-detail?id=40">Comedor Acapulco</a></li>
+                                            <li><a href="/product-detail?id=31">Comedor Tasiste</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-12">
+                                    <div class="box">
+                                        <h3>Salas</h3>
+                                        <ul>
+                                            <li><a href="/sala-detail?id=26">Sala Tradicional</a></li>
+                                            <li><a href="/sala-detail?id=25">Sala Sayula</a></li>
+                                            <li><a href="/sala-detail?id=27">Sala Tapalpa Texana</a></li>
+                                            <li><a href="/sala-detail?id=28">Sala Tradicional Junior</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-12">
+                                    <div class="box">
+                                        <h3>Descarga Nuestro Catálogo</h3>
+                                        <ul>
+                                            <li><a href="{{ url_for('equipales.descargar_pdf') }}" target="_blank" onclick="mostrarMensajeDescarga()">Descargar PDF</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row img-row">
+                                <div class="col-3">
+                                    <div class="box">
+                                        <img src="../static/img/NewImages/11.jpeg"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="box">
+                                        <img src="../static/img/NewImages/3.jpeg"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="box">
+                                        <img src="../static/img/NewImages/15.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="box">
+                                        <img src="../static/img/NewImages/17.jpeg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end mega menu -->
+                    <li><a href="{{ url_for('equipales.blog')}}">blog</a></li>
+                    <li><a href="{{ url_for('equipales.servicios')}}">Servicios</a></li>
+                    <li><a href="{{ url_for('equipales.promociones')}}">Promociones</a></li>
+                    <li><a href="{{ url_for('equipales.ubicacion')}}">Ubicación</a></li>
+                    <li><a href="{{ url_for('equipales.contacto')}}">contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end bottom header -->
+    </div>
+    <!-- end main header -->
+</header>
+<!-- end header -->
+   <!-- esto influye en la visualizacion de mi slider que se encuentra en index.html y los estilos se     -->
+  <otro class="nav-toggle" aria-label="Abrir menú">
+  </>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <section>
+    {% block content %}{% endblock %}
+  </section>
+  <!--::::Pie de Pagina::::::-->
+  <footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a>
+                    <img src="static/img/presentacion/img5.jpeg" alt="Logo de SLee Dw">
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <h3>Nos Ubicamos en: </h3>
+            <p>Arteaga #68, Colonia Los Castillos. Zacoalco De Torres, Jalisco, Mexico.</p>
+            <p>Av Rubén Ramírez Flores #339, Zacoalco De Torres, Centro.</p>
+        </div>
+        <div class="box">
+            <h2>Siguenos en:</h2>
+            <div class="red-social">
+                <a href="https://www.facebook.com/EQUIPALESCASILLASOFICIAL?mibextid=LQQJ4d" class="fab fa-facebook"></a>
+                <a href="https://instagram.com/casillasequipales?igshid=MzRlODBiNWFlZA==" class="fab fa-instagram"></a>
+                <a href="https://www.tiktok.com/@equipalescasillas" class="fab fa-tiktok"></a>
+                <a href="#" class="fab fa-youtube"></a>
+            </div>
+            <div class="terminos">
+              <ul>
+                <li><a href="#" class="link">Preguntas Frecuentes</a></li>
+                <li><a href="{{ url_for('equipales.terminosCondiciones') }}" class="link">Terminos y Condiciones</a></li>
+                <li><a href="#" class="link">Aviso de Privacidad</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2023 <b>Equipales Casillas</b> - Todos los Derechos Reservados.</small>
+    </div>
+
+</footer>
+<script src="{{ url_for('static', filename='js/busquedaProductos.js') }}"></script>
+<script src="{{ url_for('static', filename='js/product-detail.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="{{ url_for('static', filename='js/button_whatsapp.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+    function mostrarMensajeDescarga() {
+      swal({
+        title: "Descarga en progreso",
+        text: "La descarga está comenzando. Por favor, espera un momento.",
+        icon: "success", // Puedes personalizar el icono (success, warning, error, info)
+        buttons: false, // Oculta el botón "Ok"
+        timer: 3000, // Duración del mensaje (en milisegundos)
+      });
+
+      // Redirige directamente a la página de descarga
+      window.location.href = "{{ url_for('equipales.descargar_pdf') }}";
+    }
+</script>
+
+
+
+</body>
+</html>

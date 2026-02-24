@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATShop</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+<body>
+
+
+
+    <!-- products content -->
+    <div class="bg-main">
+        <div class="container">
+            <div class="box">
+                <div class="breadcumb">
+                    <a href="{{ url_for('equipales.index')}}">Inicio</a>
+                    <span><i class='bx bxs-chevrons-right'></i></span>
+                    <a href="">Todos los productos</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="row">
+                    <div class="col-3 filter-col" id="filter-col">
+                        <div class="box filter-toggle-box">
+                            <button class="btn-flat btn-hover" id="filter-close">close</button>
+                        </div>
+                        <div class="box">
+                            <span class="filter-header">
+                                Categorias
+                            </span>
+                            <ul class="filter-list">
+                                <li><a href="{{ url_for('equipales.products') }}">Asientos</a></li>
+                                <li><a href="{{ url_for('equipales.comedores') }}">Comedores</a></li>
+                                <li><a href="{{ url_for('equipales.promociones') }}">Promociones</a></li>
+                                <li><a href="{{ url_for('equipales.salas') }}">Salas</a></li>
+                                <li><a href="{{ url_for('equipales.barrasPeriqueras') }}">Barras Periqueras</a></li>
+                                <li><a href="{{ url_for('equipales.especiales') }}">Especiales</a></li>
+                                <li><a href="{{ url_for('equipales.mesas') }}">Mesas</a></li>
+                            </ul>
+                        </div>
+                        <div class="box">
+                            <span class="filter-header">
+                                Rango de Precio
+                            </span>
+                            <div class="price-range">
+                                <input type="text">
+                                <span>-</span>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="box">
+                            <ul class="filter-list">
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="status1">
+                                        <label for="status1">
+                                            Más Vendidos
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="status2">
+                                        <label for="status2">
+                                            En stock
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="status3">
+                                        <label for="status3">
+                                            Promociones
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box">
+                            <span class="filter-header">
+                                Calidad del Producto
+                            </span>
+                            <ul class="filter-list">
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember1" checked="checked">
+                                        <label for="remember1">
+                                            Platinum
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember2">
+                                        <label for="remember2">
+                                            Oro
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember3">
+                                        <label for="remember3">
+                                            Plata
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box">
+                            <span class="filter-header">
+                                Colores
+                            </span>
+                            <ul class="filter-list">
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember1">
+                                        <label for="remember1">
+                                            Madera Natural
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember2">
+                                        <label for="remember2">
+                                            Cuero Natural
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember3">
+                                        <label for="remember3">
+                                            Teñido de Cuero
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember4">
+                                        <label for="remember4">
+                                            Pintura Decorativa
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember5">
+                                        <label for="remember5">
+                                            Tapicería
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box">
+                            <span class="filter-header">
+                                Calificación
+                            </span>
+                            <ul class="filter-list">
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember1">
+                                        <label for="remember1">
+                                            <span class="rating">
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                            </span>
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember1">
+                                        <label for="remember1">
+                                            <span class="rating">
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bx-star'></i>
+                                            </span>
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-checkbox">
+                                        <input type="checkbox" id="remember1">
+                                        <label for="remember1">
+                                            <span class="rating">
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bx-star'></i>
+                                                <i class='bx bx-star'></i>
+                                            </span>
+                                            <i class='bx bx-check'></i>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-9 col-md-12">
+                        <div class="box filter-toggle-box">
+                            <button class="btn-flat btn-hover" id="filter-toggle">filter</button>
+                        </div>
+                        <div class="box">
+                            <div class="row" id="products"></div>
+                            <ul class="pagination" id="pagination"></ul>
+                        </div>
+                        <!-- <div class="box">
+                            <ul class="pagination">
+                                <li><a href="#"><i class='bx bxs-chevron-left'></i></a></li>
+                                <li><a href="#" class="active">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#"><i class='bx bxs-chevron-right'></i></a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end products content -->
+
+
+    <script>
+        // Declara una variable global con la URL generada por Flask
+        const productDetailUrl = "{{ url_for('equipales.product_detail') }}";
+    </script>
+    <!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url_for('static', filename='js/appCom.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/comedores.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/product-detail.js') }}"></script>
+
+</body>
+
+</html>
+{% endblock %}

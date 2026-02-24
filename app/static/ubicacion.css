@@ -1,0 +1,18 @@
+div.ubicacion-1 h2 {
+    color: #964B05;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    font-family: 'Roboto Slab', georgia, times, courier, sans-serif;
+    text-align: center;
+}
+
+.ubicacion-1 iframe {
+    max-width: 100%;
+    max-height: 100%;
+    padding-block-end: 20px;
+}
+
+.ubicacion-1 .iframe-2 iframe {
+    padding-left: 30px;
+}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Creación del Equipal
+{% endblock %}
+
+{% block content %}
+<header>
+  <link rel="stylesheet" href="{{ url_for('static', filename='equipal.css') }}">
+  <h1>Historia del Equipal</h1>
+  <p>Equipales Casillas | 20/09/2023</p>
+  
+</header>
+
+<main>
+  <article>
+    <img src="/static/img/creacion.jpg" alt="Imagen Principal">
+    
+    
+    <section>
+      <h2>Historia del Equipal</h2>
+      <div class="iframe-container">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FEQUIPALESCASILLASOFICIAL%2Fvideos%2F947837759889606%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+      </div>      
+      <p>El equipal es un asiento de origen prehispánico elaborado de manera artesanal en Zacoalco por personas 
+        que heredaron las técnicas de los antepasados originarios de los barrio de Las Cebollas y San Juan, en la 
+        época prehispánica eran exclusivos para caciques y otros mandatarios, los materiales los obtenían de los montes 
+        y cerros cercanos utilizando principalmente madera de palo dulce, madera de rosa, carrizos y maguey de dónde obtenían 
+        ixtle.</p>
+    </section>
+    
+    <section>
+      <h2>Cambios del Equipal</h2>
+      <p>Durante la época colonial  el equipal paso por algunos cambios o adaptaciones, se le puso respaldo y un área para 
+        descansar los brazos, se utilizó piel para tener un recubrimiento que le diera una vista más agradable para algunas 
+        personas, además de una base en forma de herradura en lugar de ser circular.</p>
+    </section>    
+  </article>
+</main>
+
+<footer>
+  <p>Derechos de autor © 2023 - Equipales Casillas</p>
+</footer>
+{% endblock %}

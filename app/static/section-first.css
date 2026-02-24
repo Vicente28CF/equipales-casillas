@@ -1,0 +1,195 @@
+/*! Estilos para section-first */
+.productos-index h2 {
+    color: #964B05;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    font-family: 'Roboto Slab', georgia, times, courier, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.productos-index h3 {
+    margin: 0 auto;
+    margin-bottom: 32px;
+    max-width: 490px;
+    padding: 0 84px;
+}
+
+.cursiva {
+    color: #ffa01c;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 36px;
+    text-align: center;
+}
+
+/* Cards */
+.container-card {
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.title-cards {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    color: #7a7a7a;
+}
+
+.card {
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #FFFFF0;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+}
+
+.card .contenido-card {
+    padding: 15px;
+    text-align: center;
+}
+
+.card .contenido-card h3 {
+    margin-bottom: 15px;
+    color: #7a7a7a;
+}
+
+.card .contenido-card p {
+    line-height: 1.8;
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card .contenido-card a {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    margin-bottom: 5px;
+}
+
+.card .contenido-card a:hover {
+    background: #2fb4cc;
+    color: #fff;
+}
+
+@media only screen and (min-width:320px) and (max-width:768px) {
+    .container-card {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        margin: 15px;
+    }
+}
+
+/* Espacio video */
+section.video-pres {
+    padding: 40px;
+    width: 100%;
+    background: linear-gradient(45deg, #D9B382, #AF7330);
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px para crear espacio */
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.video-container iframe {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Tarjeta Promo */
+.tarjeta-promo {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    padding-bottom: 20px;
+    padding-block-end: 20px;
+    margin-bottom: 0; /* Agrega un margen inferior de 0 píxeles para eliminar el espacio */
+    margin: 0 auto; /* Centra la tarjeta horizontalmente */
+    width: 500px; /* Establece el ancho de la tarjeta en 500 píxeles */
+  }
+  
+  .tarjeta-promo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    max-height: 200px;
+  }
+  
+  .tarjeta-promo h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .tarjeta-promo p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .boton {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton:hover {
+    background-color: #0056b3;
+  }
+  
+  .contenedor-promociones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -15px; /* Agrega un margen negativo de 15 píxeles para crear espacio entre las tarjetas */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20 píxeles para crear espacio con el footer */
+  }
+  
+  .tarjeta-promo:hover {
+    box-shadow: 0 0 10px 3px #007bff; /* Añade un efecto de resplandor de color azul */
+  }
+  
+  .tarjeta-promo img:hover {
+    transform: scale(1.75); /* Aplica un zoom del 20% a la imagen */
+    transition: transform 0.3s ease; /* Aplica una animación de 0,3 segundos con un efecto de suavizado */
+  }
+  
+  

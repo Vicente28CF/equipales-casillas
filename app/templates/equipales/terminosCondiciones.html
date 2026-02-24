@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}
+Terminos y Condiciones
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='terminos.css') }}">
+</head>
+<body>
+   
+    <div class="terms-container">
+        <h1>Términos y Condiciones</h1>
+        <p>Bienvenido a nuestra página web de comercio electrónico. Los siguientes términos y condiciones rigen el uso de nuestros equipales y los servicios relacionados que ofrecemos.</p>
+        <h3>POLITICAS</h3>
+        <p>Una vez aceptada la compra o dar por confirmado el pedido es aceptada las políticas y condiciones que establece Equipales Casillas.</p>
+        <h3>CUIDADOS A CONCIDERAR POR EL CLIENTE.</h3>
+        <ul>
+            <li>Dar mantenimiento al Equipal en Piel y Madera.</li>
+            <li>Dar manteamiento a la piel con productos especializados para la piel, evite usar detergentes o químicos corrosivos.</li>
+            <li>Todos los Equipales son fumigados para protegerlos contra la polilla dentro de nuestro taller.</li>
+            <li>Se debe fumigar por el cliente a los 30 días de recibido su pedido de equipales, para evitar la infestación de polilla que se pueda adquirir en el transporte o misma que ya se encuentre dentro del lugar en donde se colocaran los Equipales.</li>
+            <li>La fumigación se debe hacer por personal capacitado y certificado, para lo cual se requiere un certificado de fumigación para hacer valida la garantía.</li>
+            <li>Revisar que el pedido este completo y no cuente con algún daño, mismo que puede ser ocasionado por la fletera.</li>
+            <li>Nuestros Equipales son 100% piel, por lo cual se debe aceptar las arrugas, raspones, cicatrices, herraje, adelgazamiento, propias de la naturaleza de la piel.</li>
+            <li>Colocar los Equipales en un lugar adecuado. No se debe dejar al Sol o lluvia directa, o en temperaturas extremas. Considerar la temperatura y la humedad que existe en el lugar en donde se colocaran los Equipales.</li>
+        </ul>
+        <h3>ENVIOS FORANEOS</h3>
+        <ul>
+            <li>Cuando exista costo del envió, se sumara al valor de la mercancía comprada y será calculada e informada al Comprador. El costo del flete podrá depender de factores como la distancia, el tipo de entrega o empresa encargada del flete.</li>
+            <li>Es importante que una vez se entreguen sus Equipales estos sean desempacados y revisados al momento de la llegada a su destino y revisar que estén buenas condiciones y términos acordados.</li>
+            <li>Es importante que una vez se entreguen sus Equipales estos sean desempacados y revisados al momento de la llegada a su destino y revisar que estén buenas condiciones y términos acordados.</li>
+            <li>El costo del flete se hará por cuenta del cliente.</li>
+            <li>Equipales Casillas se encuentra a 70 km de GDL, sucursal más cercana para hacer el embarque de los Equipales, este costo correrá por parte del cliente. </li>
+            <li>Los horarios y tiempo de entrega dependen de la empresa transportista. El cliente debe estar al pendiente del día estimado de llegada de sus Equipales. La guía será enviada al cliente para su rastreabilidad </li>
+            <li>Todas las entregas se hacen únicamente en el interior de la República Mexicana.</li>
+            <li>Es deber del cliente verificar la cobertura de entrega mediante su Código Postal antes de la compra, así como el costo adicional que tendrá.</li>
+            <li>Los cambios en los costos del envió son aproximados y estos pueden estar dispuestos a cambios sin previo aviso. </li>
+            <li>Los cambios en los costos del envió son aproximados y estos pueden estar dispuestos a cambios sin previo aviso. </li>
+            <li>El clienta da como aceptado los costos adicionales del envió una vez que de por confirmada la compra o se realice el primer deposito.</li>
+        </ul>
+        <h3>GARANTIAS</h3>
+        <ul>
+            <li>La garantía de nuestros Equipales es de 1 año contra cualquier defecto de fabricación bajo uso de casa y no procederá bajo mal trato del mismo.</li>
+            <li>La garantía se hará efectiva con la reparación o sustitución del Equipal dañado. Los costos del transporte correrán por parte del cliente. Es decir, Envió del Cliente al taller de Equipales Casillas y del taller de Equipales al domicilio del cliente.  </li>
+            <li>Es responsabilidad del cliente verificar que el pedido esté en condiciones acordadas a la hora de la llegada de su pedio. </li>
+            <li>Los tonos de colores varían entre una y otra pieza así como la calidad del dispositivo electrónico donde sea visualizado. Todas las medidas de los Equipales son aproximadas, puesto que es una artesanía hecha a mano y pueden existir variaciones en las mismas. </li>
+            <li>Para hacer valida la garantía el cliente debe conservar la nota o en su efecto la factura de la compra. Debe enviarse por correo de la empresa, lo siguiente, nota o factura de la compra, fotos del daño del Equipal, copia de INE </li>
+        </ul>
+        <h3>EQUIPALES CASILLAS NO SE HARA RESPONSABLE CUANDO:</h3>
+        <ul>
+            <li>Los Equipales no fueron usados en base a lo recomendando.</li>
+            <li>Daños causados por la empresa transportista.</li>
+            <li>Daños causados por la empresa transportista.</li>
+            <li>Arrugas, marcas, cicatrices, adelgazamiento propias de la naturaleza de la piel.</li>
+            <li>Variaciones en los tonos de la piel. </li>
+            <li>A desgaste propio del uso.</li>
+            <li>Infestación por polilla sin certificado de fumigación a los 30 días de recibir el pedio.</li>
+            <li>Los Equipales fueron expuestos a agentes químicos como lo son: Jabones, disolventes, alcoholes entre otros.</li>
+        </ul>
+        <h3>Materiales</h3>
+        <ul>
+            <li>Todos nuestros Equipales son fabricados con Maderas y hechos por manos Mexicanas, por lo que pueden haber variaciones en medidas precisas, tonos de piel, defectos propios de la piel, entre otros.</li>
+            <li>Las garantías no se hacen validas a los cambios físicos y estéticos mismos que se hacen al paso del tiempo. </li>
+        </ul>
+        <h3>TIEMPOS DE ENTREGA.</h3>
+        <ul>
+            <li>Nuestros Equipales son hechos a mano y personalizados, por lo que requieren de cierto tiempo para su fabricación. Al momento de confirmar la compra con el 50% del total de la compra se fijara con el cliente el tiempo en días en el que se realizara la compra.</li>
+            <li>Verificar la disponibilidad de los Equipales, puesto que todo pedido requiere de tiempo, mismo que es un tiempo estimado, dispuesto a cambios por situaciones ajenas a la empresa. Como lo son Cambios Climáticos.</li>
+        </ul>
+        <h3>PAGO.</h3>
+        <ul>
+            <li>Para la confirmación del Pedido y fijación de la fecha de entrega se debe realizar previo el pago del 50% del total del pedido.</li>
+            <li>Deberá estar pagado el 100% de la compra para poder ser entregada a la fletera correspondiente si fuese el caso o la entrega a su destino por nosotros mismos.</li>
+            <li>Deberá estar pagado el 100% de la compra para poder ser entregada a la fletera correspondiente si fuese el caso o la entrega a su destino por nosotros mismos.</li>
+            <li>Las entregas se hacen en primer piso, sin maniobras o trabajos ajenos a nuestra Empresa.</li>
+            <li>Las entregas se hacen en primer piso, sin maniobras o trabajos ajenos a nuestra Empresa.</li>
+        </ul>
+        <h3>CANCELACIONES</h3>
+        <ul>
+            <li>Toda cancelación se hará con un cargo del 25% del valor total del pedido, por todo aquellos gastos que se generen en la primera fase del pedido.</li>
+            <li>La devolución se realizara a la misma cuenta que se haya realizado el cobro.</li>
+            <li>Toda cancelación se hará únicamente a las 24 horas de haber hecha la confirmación de la compra.</li>
+        </ul>
+        <h3>CAMBIOS EN LAS ESPECIFICACIONES DEL EQUIPAL</h3>
+        <ul>
+            <li>Los cambios se podrán hacerse dentro de los 2 primeros días hábiles a partir de la fecha de la realización del pedido.</li>
+            <li>Todo cambio en cualquier especificación debe ser confirmado por ambas partes siempre y cuando estos cambios sean posibles realizarlos en el pedido. Además de hacerlas por escrito al correo electrónico y vía telefónica dentro de los 2 primero días hábiles. </li>
+        </ul>
+    </div>
+</body>
+</html>
+{% endblock %}

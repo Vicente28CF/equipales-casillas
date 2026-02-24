@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Equipales Casillas,
+{% endblock %}
+
+{% block content %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='grid.css') }}">
+  <!-- Agrega los enlaces a SweetAlert2 CSS y JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+</head>
+<header class="hero-image">
+  <div>
+    <h1>Equipales Casillas</h1>
+    <p>"Descubre la comodidad y estilo único de nuestros equipales"</p>
+  </div>
+</header>
+
+<section class="text-description">
+  <h2>CONOCE NUESTROS PRODUCTOS</h2>
+  <img src="static/img/ecommerce2.jpeg" alt="ecommerce"  height="420px">
+  <p class="p-descrip">En nuestro ecommerce, encontrarás una amplia gama de equipales mexicanos,
+     diseñados y elaborados con maestría por artesanos locales de Zacoalco de Torres, un pueblo
+     reconocido por su legado en la creación de estos muebles tradicionales. Los equipales son
+     un símbolo de la rica cultura mexicana, y cada uno cuenta una historia única.</p>
+
+</section>
+
+
+<section class="swiper-container loading">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style= "background-image: url(static/img/presentacion/img33.jpeg);">
+      <img src="static/img/presentacion/img33.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Equipales Casillas</p>
+        <span class="caption" data-swiper-parallax="-20%">Una sala en "Equipales Casillas", es una obra de arte que combina la tradición y la innovación para crear un espacio único y especial.</span>
+      </div>
+    </div>
+    <div class="swiper-slide" style= "background-image: url(static/img/presentacion/img1.jpeg);">
+      <img src="static/img/presentacion/img1.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style= "background-image: url(static/img/presentacion/img7.jpeg);">
+      <img src="static/img/presentacion/img7.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style= "background-image: url(static/img/presentacion/img22.jpeg);">
+      <img src="static/img/presentacion/img22.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(static/img/presentacion/img26.jpeg);">
+      <img src="static/img/presentacion/img26.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(static/img/presentacion/img27.jpeg);">
+      <img src="static/img/presentacion/img27.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(static/img/presentacion/img14.jpeg);">
+      <img src="static/img/presentacion/img14.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(static/img/presentacion/img30.jpeg);">
+      <img src="static/img/presentacion/img30.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(static/img/presentacion/img31.jpeg);">
+      <img src="static/img/presentacion/img31.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(static/img/presentacion/img32.jpeg);">
+      <img src="static/img/presentacion/img32.jpeg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"></p>
+        <span class="caption" data-swiper-parallax="-20%"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev swiper-button-white"></div>
+  <div class="swiper-button-next swiper-button-white"></div>
+</section>
+
+
+
+
+<!--<div class="content-gallery">
+  <!--<div class="gallery">
+    <span style="--i:1"><img src="static/banner-1.jpg" alt=""></span>
+    <span style="--i:2"><img src="static/img/presentacion/img7.jpeg" alt=""></span>
+    <span style="--i:3"><img src="" alt=""></span>
+    <span style="--i:4"><img src="" alt=""></span>
+    <span style="--i:5"><img src="" alt=""></span>
+    <span style="--i:6"><img src="" alt=""></span>
+    <span style="--i:7"><img src="" alt=""></span>
+    <span style="--i:8"><img src="" alt=""></span>
+  </div>
+</div>-->
+<!-- Slider main container -->
+<!--<div class="swiper swiper-hero">
+    <!-- Additional required wrapper -->
+<!--<div class="swiper-wrapper">
+      <!-- Slides -->
+<!--<div class="swiper-slide">
+        <img
+          src="https://www.equipalesimperial.com/wp-content/uploads/2017/12/equipales-imperial-modelos.jpg"
+          alt=""
+        />
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="https://www.equipalesimperial.com/wp-content/uploads/2017/12/equipales-imperial-comedor-banner.jpg"
+          alt=""
+        />
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="https://www.equipalesimperial.com/wp-content/uploads/2017/12/banner-1.jpg"
+          alt=""
+        />
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="static/img/presentacion/img6.jpeg"
+          alt=""
+        />
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="static/img/presentacion/img7.jpeg"
+          alt=""
+        />
+      </div>
+    </div>
+    <!-- If we need pagination -->
+<!--<div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+<!--<div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+<!-- <div class="swiper-scrollbar"></div> -->
+<!-- </div> -->
+
+
+
+{% include 'equipales/section-first.html' %}
+{% endblock %}

@@ -1,0 +1,3 @@
+User-agent: Googlebot
+Allow: /path-to-allow/
+Disallow: /path-to-disallow/

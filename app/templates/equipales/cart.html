@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Carrito de Compras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
+</head>
+
+<body>
+    <h1>Carrito de Compras</h1>
+
+    <div id="cart-container">
+        <!-- Aquí se mostrarán los productos en el carrito -->
+    </div>
+
+    <!-- Sección de Resumen -->
+    <div id="cart-summary">
+        <h2>Resumen del Carrito</h2>
+        <div id="subtotal">
+            <p>Subtotal: <span id="subtotal-amount">$0.00</span></p>
+        </div>
+        <div id="total">
+            <p>Total: <span id="total-amount">$0.00</span></p>
+        </div>
+        <button id="btn-clear-cart">Limpiar Carrito</button>
+    </div>
+
+    <!-- <script src="{{ url_for('static', filename='js/salas.js') }}"></script> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Recuperar el carrito desde localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Obtener el contenedor donde se mostrarán los productos en el carrito
+            const cartContainer = document.getElementById('cart-container');
+
+            // Obtener los elementos de resumen
+            const subtotalAmount = document.getElementById('subtotal-amount');
+            const totalAmount = document.getElementById('total-amount');
+
+            // Función para actualizar el carrito y los elementos de resumen
+            function updateCart() {
+                // Limpiar el contenido actual del contenedor del carrito
+                cartContainer.innerHTML = '';
+
+                // Mostrar los productos del carrito en la página
+                cart.forEach((product, index) => {
+                    const productElement = document.createElement('div');
+                    // Formatear el precio con comas para separar las centenas
+                    const formattedPrice = product.curr_price2.toLocaleString('es-MX', {
+                        style: 'currency',
+                        currency: 'MXN'
+                    });
+                    productElement.innerHTML = `
+                        <div class="cart-item">
+                            <img src="${product.image1}" alt="${product.name}">
+                            <p>${product.name} - Cantidad: 
+                                <button class="btn-increment" data-index="${index}">+</button>
+                                ${product.quantity}
+                                <button class="btn-decrement" data-index="${index}">-</button>
+                                - Precio: ${formattedPrice}
+                                <button class="btn-remove" data-index="${index}">Eliminar</button>
+                            </p>
+                        </div>
+                    `;
+                    cartContainer.appendChild(productElement);
+                });
+
+                // Calcular subtotal y total
+                const subtotal = cart.reduce((total, product) => total + (product.curr_price2 * product.quantity), 0);
+                const total = subtotal; // Puedes ajustar aquí según tus necesidades
+
+                // Actualizar los elementos de resumen en la página
+                subtotalAmount.textContent = `$${subtotal.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                totalAmount.textContent = `$${total.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            }
+
+            // Escuchar eventos de clic en los botones de incremento y decremento
+            document.addEventListener('click', function (event) {
+                if (event.target.classList.contains('btn-increment')) {
+                    const index = event.target.getAttribute('data-index');
+                    // Incrementar la cantidad del producto en el carrito
+                    cart[index].quantity++;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart(); // Actualizar el carrito después de la actualización
+                } else if (event.target.classList.contains('btn-decrement')) {
+                    const index = event.target.getAttribute('data-index');
+                    // Decrementar la cantidad del producto en el carrito, evitando que sea menor a 1
+                    cart[index].quantity = Math.max(1, cart[index].quantity - 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart(); // Actualizar el carrito después de la actualización
+                } else if (event.target.classList.contains('btn-remove')) {
+                    const index = event.target.getAttribute('data-index');
+                    // Eliminar el producto del carrito por su índice
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart(); // Actualizar el carrito después de la eliminación
+                }
+            });
+
+            // Actualizar resumen del carrito al cargar la página
+            updateCart();
+
+            // Agregar eventos de clic al botón de limpiar carrito
+            document.getElementById('btn-clear-cart').addEventListener('click', function () {
+                // Limpiar el carrito y los elementos de resumen
+                cart = [];
+                localStorage.removeItem('cart');
+                updateCart(); // Actualizar el carrito después de la limpieza
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+{% endblock %}

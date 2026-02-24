@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="blog-page">
+    <div class="hero">
+        <div class="hero-content">
+            <div class="left">
+                <h1 class="titulo typing-animation">Desde Zacoalco de Torres, Jal. La Cuna del Equipal</h1>
+                <h2>Equipales Casillas</h2>
+                <p class="index">
+                    Trabajamos con los mejores materiales, caracterizando a Equipales Casillas
+                    como toda una artesanía de calidad y comodidad. Somos una empresa 100% mexicana, 
+                    con habilidades de diseño en equipales con calidad, resistencia y reforzamiento.
+                    <img src="static/img/caidad1.png" alt="Calidad Equipales">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-container">
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/9KSNlz0RFNE" 
+                title="Crónica Comercial - Equipales Casillas" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Videos de TikTok -->
+    <div class="tiktok-section">
+        <h2 class="tiktok-title">Síguenos en TikTok</h2>
+        <div class="tiktok-container">
+            <!-- Video 1 -->
+            <div class="tiktok-video">
+                <blockquote class="tiktok-embed" 
+                    cite="https://www.tiktok.com/@equipalescasillas/video/7485079615271193861" 
+                    data-video-id="7485079615271193861" 
+                    style="max-width: 605px;min-width: 325px;">
+                    <section>
+                        <a target="_blank" title="@equipalescasillas" href="https://www.tiktok.com/@equipalescasillas">@equipalescasillas</a>
+                        <p>Descubre el proceso artesanal de nuestros equipales</p>
+                        <a target="_blank" title="♬ sonido original" href="https://www.tiktok.com/music/sonido-original-7485079615271193861">♬ sonido original</a>
+                    </section>
+                </blockquote>
+            </div>
+            
+            <!-- Puedes agregar más videos aquí -->
+            <!-- Video 2 - Ejemplo (reemplaza con otro video real) -->
+            <div class="tiktok-video">
+                <blockquote class="tiktok-embed" 
+                    cite="https://www.tiktok.com/@equipalescasillas/video/7530360370515430664" 
+                    data-video-id="7530360370515430664" 
+                    style="max-width: 605px;min-width: 325px;">
+                    <section>
+                        <a target="_blank" title="@equipalescasillas" href="https://www.tiktok.com/@equipalescasillas">@equipalescasillas</a>
+                        <p>Descubre más sobre nuestros equipales artesanales</p>
+                        <a target="_blank" title="♬ sonido original" href="https://www.tiktok.com/music/sonido-original-7530360370515430664">♬ sonido original</a>
+                    </section>
+                </blockquote>
+            </div>
+        </div>
+        
+        <!-- Botón para ver más en TikTok -->
+        <div class="tiktok-cta">
+            <a href="https://www.tiktok.com/@equipalescasillas" target="_blank" class="tiktok-button">
+                Ver más en TikTok
+            </a>
+        </div>
+    </div>
+
+    <!-- Script de TikTok -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <div class="articulos">
+        <h1 class="blog-h1">Artículos Interesantes sobre El Equipal</h1>
+        <section class="post container">
+            <!--Box 1-->
+            <div class="post-box">
+                <img src="static/img/presentacion/img8.jpeg" alt="Historia del Equipal" class="post-img">
+                <h2 class="category">EQUIPALES CASILLAS</h2>
+                <a href='{{ url_for('equipales.creacionEquipal')}}' class="post-title">
+                    Historia del Equipal
+                </a>
+                <span class="post-date">09 abril 2023</span>
+                <p class="post-description">El equipal es un asiento de origen prehispánico elaborado de manera
+                artesanal en Zacoalco por personas que heredaron las técnicas de los antepasados originarios de los barrio de Las Cebollas y San Juan</p>
+                <!--profile-->
+                <div class="profile">
+                    <img src="static/img/L2.png" alt="Equipales Casillas" class="profile-img">
+                    <span class="profile-name">Equipales Casillas</span>
+                </div>
+            </div>
+            
+            <!--Box 2-->
+            <div class="post-box">
+                <img src="static/img/presentacion/img30.jpeg" alt="Cuidados del Equipal" class="post-img">
+                <h2 class="category">EQUIPAL CASILLAS</h2>
+                <a href='{{ url_for('equipales.cuidadosEquipal')}}' class="post-title">
+                    Cuidados especiales a mi Equipal
+                </a>
+                <span class="post-date">09 abril 2023</span>
+                <p class="post-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, dolor facilis. Veniam ipsam libero omnis neque! Ea pariatur accusamus suscipit alias, rem delectus cumque eius unde eligendi tempora beatae nemo.</p>
+                <!--profile-->
+                <div class="profile">
+                    <img src="static/img/L2.png" alt="Equipales Casillas" class="profile-img">
+                    <span class="profile-name">Equipales Casillas</span>
+                </div>
+            </div>
+            
+            <!--Box 3-->
+            <div class="post-box">
+                <img src="static/img/presentacion/img11.jpeg" alt="Significado del Equipal" class="post-img">
+                <h2 class="category">EQUIPAL CASILLAS</h2>
+                <a href='{{ url_for('equipales.significadoEquipal')}}' class="post-title">
+                    Significado del equipal
+                </a>
+                <span class="post-date">09 abril 2023</span>
+                <p class="post-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, dolor facilis. Veniam ipsam libero omnis neque! Ea pariatur accusamus suscipit alias, rem delectus cumque eius unde eligendi tempora beatae nemo.</p>
+                <!--profile-->
+                <div class="profile">
+                    <img src="static/img/L2.png" alt="Equipales Casillas" class="profile-img">
+                    <span class="profile-name">Equipales Casillas</span>
+                </div>
+            </div>
+            
+            <!--Box 4-->
+            <div class="post-box">
+                <img src="static/img/presentacion/creacionEquipal.jpeg" alt="Creación del Equipal" class="post-img">
+                <h2 class="category">EQUIPAL</h2>
+                <a href="" class="post-title">
+                    Creación del Equipal
+                </a>
+                <span class="post-date">09 abril 2023</span>
+                <p class="post-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, dolor facilis. Veniam ipsam libero omnis neque! Ea pariatur accusamus suscipit alias, rem delectus cumque eius unde eligendi tempora beatae nemo.</p>
+                <!--profile-->
+                <div class="profile">
+                    <img src="static/img/L2.png" alt="Equipales Casillas" class="profile-img">
+                    <span class="profile-name">Equipales Casillas</span>
+                </div>
+            </div>
+            
+            <!--Box 5-->
+            <div class="post-box">
+                <img src="static/img/presentacion/pedidoEspecial.jpg" alt="Pedidos Especiales" class="post-img">
+                <h2 class="category">EQUIPAL</h2>
+                <a href="" class="post-title">
+                    Pedidos Especiales en "Equipales Casillas"
+                </a>
+                <span class="post-date">09 abril 2023</span>
+                <p class="post-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, dolor facilis. Veniam ipsam libero omnis neque! Ea pariatur accusamus suscipit alias, rem delectus cumque eius unde eligendi tempora beatae nemo.</p>
+                <!--profile-->
+                <div class="profile">
+                    <img src="static/img/L2.png" alt="Equipales Casillas" class="profile-img">
+                    <span class="profile-name">Equipales Casillas</span>
+                </div>
+            </div>
+            
+            <!--Box 6-->
+            <div class="post-box">
+                <img src="static/img/presentacion/img17.jpeg" alt="Materiales del Equipal" class="post-img">
+                <h2 class="category">EQUIPAL</h2>
+                <a href="" class="post-title">
+                    Materiales del Equipal
+                </a>
+                <span class="post-date">09 abril 2023</span>
+                <p class="post-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, dolor facilis. Veniam ipsam libero omnis neque! Ea pariatur accusamus suscipit alias, rem delectus cumque eius unde eligendi tempora beatae nemo.</p>
+                <!--profile-->
+                <div class="profile">
+                    <img src="static/img/L2.png" alt="Equipales Casillas" class="profile-img">
+                    <span class="profile-name">Equipales Casillas</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

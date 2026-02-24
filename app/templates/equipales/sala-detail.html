@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATShop</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+
+<body>
+    <!-- product-detail.html -->
+    <div class="bg-main">
+        <div class="container">
+            <div class="row product-row">
+                <!-- mis imagenes obtenidas de mi js -->
+                <div class="col-5 col-md-12">
+                    <div id="product-details">
+                        <div class="product-img" id="product-images">
+                            <img id="image1" src="" alt="Product Image 1" class="zoomable">
+                        </div>
+                        <div class="box">
+                            <div class="product-img-list">
+                                <div class="product-img-item" id="product-images">
+                                    <img id="image2" src="" alt="Product Image 2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-7 col-md-12">
+                    <div class="product-info">
+                        <h1 id="product-name"></h1>
+                        <div class="product-info-detail">
+                            <span class="product-info-detail-title">Tipo:</span>
+                            <a href="{{ url_for('equipales.salas') }}">Salas</a>
+                        </div>
+                        <div class="product-info-detail">
+                            <span class="product-info-detail-title">Calificacion:</span>
+                            <span class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </span>
+                        </div>
+                        <!-- Características del equipal -->
+                        <div id="product-features">
+                            <h2>Características del Producto:</h2>
+                            <h3>Sofa 1.60</h3>
+                            <ul id="product-detail-description"></ul>
+                            <h3>C #30 Individual</h3>
+                            <ul id="product-detail-description2"></ul>
+                            <h3>Sofa 1.20 cm</h3>
+                            <ul id="product-detail-description3"></ul>
+                        </div>
+
+
+                        <div class="product-info-price" id="product-prices">
+                            <div>
+                                <h6>Precio anterior: <s><span id="old-price"></span></s></h6>
+                            </div>
+                            <div>
+                                <h6>Precio Actual + IVA:</h6>
+                                <h5><span id="curr-price"></span></h5>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="btn-flat btn-hover">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluye tu archivo JavaScript -->
+    <script src="{{ url_for('static', filename='js/salas.js') }}"></script>
+
+    <!-- app js -->
+    <script src="{{ url_for('static', filename='js/appSalas.js') }}"></script>
+    <!-- product-detail js -->
+    <script src="{{ url_for('static', filename='js/product-detail.js') }}"></script>
+
+    <script>
+        // Obtén el parámetro "id" de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Buscar el índice del producto en base al ID
+        const productIndex = products.findIndex(product => product.id === parseInt(productId));
+
+        if (productIndex !== -1) {
+            const product = products[productIndex];
+
+            // Rellena los elementos HTML con los detalles del producto
+            document.getElementById("product-name").innerText = product.name;
+            document.getElementById("image1").src = product.image1; // Verifica que la ruta sea correcta
+            document.getElementById("image2").src = product.image2; // Verifica que la ruta sea correcta
+            document.getElementById("old-price").innerText = product.old_price || "";
+            document.getElementById("curr-price").innerText = product.curr_price;
+
+            // Obtén la referencia al elemento donde se mostrarán las características principales
+            const productFeatures = document.getElementById("product-detail-description");
+
+            // Limpia el contenido existente (por si acaso)
+            productFeatures.innerHTML = "";
+
+            // Verifica si el producto tiene características (puede ser una cadena o un arreglo)
+            if (Array.isArray(product.feature)) {
+                // Si es un arreglo, crea una lista ul y agrega cada característica como un li
+                const ul = document.createElement("ul");
+                product.feature.forEach(feature => {
+                    const li = document.createElement("li");
+                    li.textContent = feature;
+                    ul.appendChild(li);
+                });
+                productFeatures.appendChild(ul);
+            } else if (typeof product.feature === "string") {
+                // Si es una cadena, simplemente muestra esa cadena como un párrafo
+                const paragraph = document.createElement("p");
+                paragraph.textContent = product.feature;
+                productFeatures.appendChild(paragraph);
+            } else {
+                // Maneja otros tipos de datos si es necesario
+                console.log("Tipo de características desconocido:", typeof product.feature);
+            }
+
+            // Rellenar los elementos para las características adicionales
+            const productDetailDescription2 = document.getElementById("product-detail-description2");
+            const productDetailDescription3 = document.getElementById("product-detail-description3");
+
+            productDetailDescription2.innerHTML = ""; // Limpia el contenido existente
+            productDetailDescription3.innerHTML = ""; // Limpia el contenido existente
+
+            // Verifica y llena las características adicionales
+            if (Array.isArray(product.feature2)) {
+                const ul2 = document.createElement("ul");
+                product.feature2.forEach(feature => {
+                    const li = document.createElement("li");
+                    li.textContent = feature;
+                    ul2.appendChild(li);
+                });
+                productDetailDescription2.appendChild(ul2);
+            }
+
+            if (Array.isArray(product.feature3)) {
+                const ul3 = document.createElement("ul");
+                product.feature3.forEach(feature => {
+                    const li = document.createElement("li");
+                    li.textContent = feature;
+                    ul3.appendChild(li);
+                });
+                productDetailDescription3.appendChild(ul3);
+            }
+
+        } else {
+            console.log("Producto no encontrado.");
+        }
+
+    </script>
+
+</body>
+
+</html>
+{% endblock %}

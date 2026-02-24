@@ -1,0 +1,85 @@
+/* En cart.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.cart-item img {
+    max-width: 120px;
+    margin-right: 10px;
+}
+
+.cart-item p {
+    margin: 0;
+}
+
+#btn-clear-cart {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#btn-clear-cart:hover {
+    background-color: #ff4737;
+}
+
+/* Estilos adicionales para el resumen del carrito */
+#cart-summary {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#subtotal, #total {
+    margin-bottom: 15px;
+}
+
+#subtotal-amount, #total-amount {
+    font-weight: bold;
+    color: #333;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
